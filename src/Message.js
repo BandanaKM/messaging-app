@@ -10,9 +10,9 @@ const Message = props =>
 	    {props.content}
 	  </MessageContent>
 	  <button onClick={props.handleToggleEditing}>
-	    {props.isEditing ? "S" : "E"}
+	    {props.isEditing ? "Save" : "Edit"}
 	  </button>
-	  <button onClick={props.handleRemove}>D</button>
+	  <button onClick={props.handleRemove}>Delete</button>
 	</li>;
 
 Message.propTypes = {
