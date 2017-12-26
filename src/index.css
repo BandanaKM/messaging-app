@@ -260,7 +260,7 @@ td:last-child {
 
 @media (min-width: 769px) {
   header {
-    height: 280px;
+    height: 50px;
     padding: 2.5em 1em 1em;
     background-position: 0 -95px;
   }
@@ -314,7 +314,7 @@ td:last-child {
     flex-grow: 1;
     -ms-flex-preferred-size: 47.5%;
     flex-basis: 100%;
-    margin: 0 1.25% 1em;
+    margin: 3.5% 15.25% 1em;
   }
 }
 
