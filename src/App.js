@@ -44,6 +44,14 @@ class App extends Component {
        })
      });
 
+  removeMessageAt = index => 
+    this.setState({
+      messages: [
+      ...this.state.messages.slice(0, index),
+      ...this.state.messages.slice(index + 1)
+      ]
+   })
+
   toggleEditingAt = index => 
     this.toggleMessagePropertyAt("isEditing", index);
 
@@ -76,14 +84,6 @@ class App extends Component {
       pendingMessage: ''
     });
   }
-
-  removeMessageAt = index => 
-    this.setState({
-      message: [
-      ...this.state.messages.slice(0, index),
-      ...this.state.messages.slice(index + 1)
-      ]
-   })
 
   render() {
     return (
