@@ -47,7 +47,7 @@ p {
 }
 
 form {
-  width: 60%;
+  width: 80%;
   height: 60px;
   background: white;
   display: inline-block;
@@ -100,8 +100,8 @@ header {
 }
 
 header input {
-  padding: 12px;
-  font-size: 1.15em;
+/*  padding: 12px;
+*/  font-size: 1.15em;
   width: 100%;
 }
 
@@ -145,6 +145,26 @@ li button {
 
 li button:last-child {
   background: rgba(88, 183, 205, .5);
+}
+
+.participantButtonOne {
+  font-size: .78em;
+  margin-top: 1.65em;
+  margin-right: .4em;
+  border-radius: .3em;
+  padding: .8em 1em;
+  color: white;
+  background: #58b7cd; 
+}
+
+.participantButtonTwo {
+  font-size: .78em;
+  margin-top: 1.65em;
+  margin-right: .4em;
+  border-radius: .3em;
+  padding: .8em 1em;
+  color: white;
+  background: pink; 
 }
 
 div > input:last-child {
@@ -254,7 +274,7 @@ td:last-child {
     font-size: 1.95em;
   }
   form {
-    margin: 4.15em auto 0;
+    margin: 1em auto 0 auto;
     z-index: 3000;
     position: relative;
   }

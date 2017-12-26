@@ -85,6 +85,8 @@ class App extends Component {
     });
   }
 
+  // getCharacterCount = () => this.state.content.length; 
+
   render() {
     return (
       <div className="App">
@@ -97,6 +99,10 @@ class App extends Component {
             setContentAt={this.setContentAt}
             removeMessageAt={this.removeMessageAt}
           />
+          <div className="participantContainer">
+          <button className="participantButtonOne">Me</button>
+          <button className="participantButtonTwo">Zuri</button>
+          </div>
           <form onSubmit={this.newMessageSubmitHandler}>
             <input 
               type="text" 
