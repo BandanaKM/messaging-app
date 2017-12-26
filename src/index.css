@@ -64,6 +64,7 @@ form button {
   font-size: 1em;
   background: #7bcbc4;
   border-radius: .2em;
+  margin-left: 20px;
 }
 
 ul {
@@ -192,7 +193,9 @@ td:last-child {
 /* pending */
 
 .pending {
-  border-color: rgba(210, 210, 210, .5);
+  color: grey;
+  display: flex;
+  margin-right: 20px;
 }
 
 .pending span {
@@ -282,7 +285,6 @@ td:last-child {
     width: 90%;
   }
   .main {
-    padding: 3.8em 1.5em .75em;
     position: relative;
     z-index: 10;
   }

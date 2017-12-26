@@ -1,31 +1,28 @@
 import React, { Component } from 'react';
 import './App.css';
 import MessageList from './MessageList';
+import Counter from './Counter';
 
-// getCharacterCount
 // allow form to select sender 
-// time sent 
 
 class App extends Component {
 
   state = {
+    pendingMessage: "",
     messages: [
       {
         content: 'Hey Bana, how are you doing?',
-        pendingMessage: '',
         sent: false,
         isEditing: false
       },
       {
         content: 'I am doing well, actually.',
         sent: false,
-        pendingMessage: '',
         isEditing: false
       },
       {
         content: 'That is great.',
         sent: false,
-        pendingMessage: '',
         isEditing: true
       }
     ]
@@ -85,8 +82,6 @@ class App extends Component {
     });
   }
 
-  // getCharacterCount = () => this.state.content.length; 
-
   render() {
     return (
       <div className="App">
@@ -98,20 +93,24 @@ class App extends Component {
             toggleEditingAt={this.toggleEditingAt}
             setContentAt={this.setContentAt}
             removeMessageAt={this.removeMessageAt}
+            pendingMessage={this.state.pendingMessage}
           />
           <div className="participantContainer">
-          <button className="participantButtonOne">Me</button>
-          <button className="participantButtonTwo">Zuri</button>
+            <button className="participantButtonOne">Me</button>
+            <button className="participantButtonTwo">Zuri</button>
           </div>
-          <form onSubmit={this.newMessageSubmitHandler}>
-            <input 
-              type="text" 
-              onChange={this.handleMessageInput}
-              value={this.state.pendingMessage}
-              placeholder="My Message" 
-            />
-          <button type="submit" name="submit" value="submit">Submit</button>
-          </form>
+            <form onSubmit={this.newMessageSubmitHandler}>
+              <input 
+                type="text" 
+                onChange={this.handleMessageInput}
+                value={this.state.pendingMessage}
+                placeholder="My Message" 
+              />
+              <div className="pending">
+                <Counter content={this.state.pendingMessage} />
+                <button type="submit" name="submit" value="submit">Submit</button>
+              </div>
+            </form>
         </div>
       </div>
     );

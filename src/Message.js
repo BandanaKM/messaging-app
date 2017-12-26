@@ -16,7 +16,7 @@ const Message = props =>
 	</li>;
 
 Message.propTypes = {
-	content: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
   handleToggleEditing: PropTypes.func.isRequired,
   isEditing: PropTypes.bool.isRequired,
   setContent: PropTypes.func.isRequired,
