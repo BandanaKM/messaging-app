@@ -13,17 +13,20 @@ class App extends Component {
       {
         content: 'Hey Bana, how are you doing?',
         sent: false,
-        isEditing: false
+        isEditing: false,
+        timeSent: Date()
       },
       {
         content: 'I am doing well, actually.',
         sent: false,
-        isEditing: false
+        isEditing: false,
+        timeSent: Date()
       },
       {
         content: 'That is great.',
         sent: false,
-        isEditing: true
+        isEditing: true,
+        timeSent: Date()
       }
     ]
   }
@@ -75,7 +78,8 @@ class App extends Component {
         ...this.state.messages,
        { 
          content: this.state.pendingMessage,
-         isEditing: false
+         isEditing: false,
+         timeSent: Date()
        }
       ],
       pendingMessage: ''
