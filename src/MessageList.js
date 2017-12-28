@@ -10,6 +10,7 @@ const MessageList = props =>
 	      key={index} 
 	      content={message.content}
         timeSent={message.timeSent}
+        initials={message.initials}
 	      handleToggleEditing={() => props.toggleEditingAt(index)}
 	      isEditing={message.isEditing}
 	      setContent={text => props.setContentAt(text, index)}

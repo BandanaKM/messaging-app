@@ -4,6 +4,7 @@ import MessageContent from './MessageContent';
 
 const Message = props => 
 	<li className="responded">
+	  <h5>{props.initials}</h5>
 	  <h5>{props.timeSent}</h5>
 	  <MessageContent 
 	    isEditing={props.isEditing} 
@@ -22,7 +23,8 @@ Message.propTypes = {
   isEditing: PropTypes.bool.isRequired,
   setContent: PropTypes.func.isRequired,
   handleRemove: PropTypes.func.isRequired,
-  timeSent: PropTypes.string.isRequired
+  timeSent: PropTypes.string.isRequired,
+  initials: PropTypes.string.isRequired
 };
 
 export default Message;

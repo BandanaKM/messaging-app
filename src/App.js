@@ -3,8 +3,6 @@ import './App.css';
 import MessageList from './MessageList';
 import Counter from './Counter';
 
-// allow form to select sender 
-
 class App extends Component {
 
   state = {
@@ -12,21 +10,21 @@ class App extends Component {
     messages: [
       {
         content: 'Hey Bana, how are you doing?',
-        sent: false,
         isEditing: false,
-        timeSent: Date()
+        timeSent: Date(),
+        initials: 'HK'
       },
       {
         content: 'I am doing well, actually.',
-        sent: false,
         isEditing: false,
-        timeSent: Date()
+        timeSent: Date(),
+        initials: 'BM'
       },
       {
         content: 'That is great.',
-        sent: false,
-        isEditing: true,
-        timeSent: Date()
+        isEditing: false,
+        timeSent: Date(),
+        initials: 'HK'
       }
     ]
   }
@@ -71,6 +69,11 @@ class App extends Component {
   handleMessageInput = e => 
     this.setState({pendingMessage: e.target.value});
   
+  setUser = (e, initials) => {
+    this.setState({ initials });
+  }
+
+
   newMessageSubmitHandler = e => {
     e.preventDefault();
     this.setState({
@@ -79,12 +82,14 @@ class App extends Component {
        { 
          content: this.state.pendingMessage,
          isEditing: false,
-         timeSent: Date()
+         timeSent: Date(),
+         initials: this.state.initials
        }
       ],
       pendingMessage: ''
     });
   }
+
 
   render() {
     return (
@@ -98,10 +103,12 @@ class App extends Component {
             setContentAt={this.setContentAt}
             removeMessageAt={this.removeMessageAt}
             pendingMessage={this.state.pendingMessage}
+            initials={this.state.initials}
           />
           <div className="participantContainer">
-            <button className="participantButtonOne">Me</button>
-            <button className="participantButtonTwo">Zuri</button>
+            <button className="participantButtonOne" onClick={(e) => this.setUser(e, 'BM') }>BM</button>
+            <button className="participantButtonTwo" onClick={(e) => this.setUser(e, 'HK') }>HK</button>
+            <button className="participantButtonThree" onClick={(e) => this.setUser(e, 'NS') }>NS</button>
           </div>
             <form onSubmit={this.newMessageSubmitHandler}>
               <input 
