@@ -12,19 +12,25 @@ class App extends Component {
         content: 'Hey Bana, how are you doing?',
         isEditing: false,
         timeSent: Date(),
-        initials: 'HK'
+        initials: 'Hazuri Malik'
       },
       {
         content: 'I am doing well, actually.',
         isEditing: false,
         timeSent: Date(),
-        initials: 'BM'
+        initials: 'Bana Malik'
       },
       {
         content: 'That is great.',
         isEditing: false,
         timeSent: Date(),
-        initials: 'HK'
+        initials: 'Narinder Singh'
+      },
+      {
+        content: 'How are you both doing?',
+        isEditing: false,
+        timeSent: Date(),
+        initials: 'Bana Malik'
       }
     ]
   }
@@ -106,9 +112,9 @@ class App extends Component {
             initials={this.state.initials}
           />
           <div className="participantContainer">
-            <button className="participantButtonOne" onClick={(e) => this.setUser(e, 'BM') }>BM</button>
-            <button className="participantButtonTwo" onClick={(e) => this.setUser(e, 'HK') }>HK</button>
-            <button className="participantButtonThree" onClick={(e) => this.setUser(e, 'NS') }>NS</button>
+            <button className="participantButtons participantButtonOne" onClick={(e) => this.setUser(e, 'Bana Malik') }>BM</button>
+            <button className="participantButtons participantButtonTwo" onClick={(e) => this.setUser(e, 'Hazuri Malik') }>HK</button>
+            <button className="participantButtons participantButtonThree" onClick={(e) => this.setUser(e, 'Narinder Singh') }>NS</button>
           </div>
             <form onSubmit={this.newMessageSubmitHandler}>
               <input 
@@ -117,7 +123,7 @@ class App extends Component {
                 value={this.state.pendingMessage}
                 placeholder="My Message" 
               />
-              <div className="pending">
+              <div className="counter">
                 <Counter content={this.state.pendingMessage} />
                 <button type="submit" name="submit" value="submit">Submit</button>
               </div>

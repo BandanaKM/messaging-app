@@ -4,8 +4,10 @@ import MessageContent from './MessageContent';
 
 const Message = props => 
 	<li className="responded">
-	  <h5>{props.initials}</h5>
-	  <h5>{props.timeSent}</h5>
+	  <div className="metadata"> 
+	    <h5 className="metadata">{props.initials}</h5>
+	    <h5 className="metadata">{props.timeSent}</h5>
+	  </div>
 	  <MessageContent 
 	    isEditing={props.isEditing} 
 	    handleContentEdits={e => props.setContent(e.target.value)}>
