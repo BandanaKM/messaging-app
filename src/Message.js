@@ -1,18 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MessageContent from './MessageContent';
+import EditContent from './EditContent';
 
-const Message = props => 
+const Message = props =>
 	<li className="responded">
-	  <div className="metadata"> 
-	    <h5 className="metadata">{props.initials}</h5>
-	    <h5 className="metadata">{props.timeSent}</h5>
+	  <div className="metadata">
+	    <h5>{props.initials}</h5>
+	    <h5>{props.timeSent}</h5>
 	  </div>
-	  <MessageContent 
-	    isEditing={props.isEditing} 
+	  <EditContent
+	    isEditing={props.isEditing}
 	    handleContentEdits={e => props.setContent(e.target.value)}>
 	    {props.content}
-	  </MessageContent>
+	  </EditContent>
 	  <button onClick={props.handleToggleEditing}>
 	    {props.isEditing ? "Save" : "Edit"}
 	  </button>
