@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import MessageList from './MessageList';
 import Counter from './Counter';
 
@@ -25,17 +24,14 @@ class App extends Component {
         isEditing: false,
         timeSent: Date(),
         initials: 'Narinder Singh'
-      },
-      {
-        content: 'How are you both doing?',
-        isEditing: false,
-        timeSent: Date(),
-        initials: 'Bana Malik'
       }
     ]
   }
 
-  toggleMessagePropertyAt = (property, indexToChange) => 
+
+/* maps over the messages array, taking a particular message and an index value. if the index of the array is equal to the index we pass in, returns the message array and toggles the property passed in. otherwise just returns the message */
+
+  toggleMessagePropertyAt = (property, indexToChange) =>
      this.setState({
        messages: this.state.messages.map((message, index) => {
          if (index === indexToChange) {
@@ -48,7 +44,16 @@ class App extends Component {
        })
      });
 
-  removeMessageAt = index => 
+/* sets the isEditing value to true or false. this is passed down from App to MessageList to Message to EditContent. on an individual message, can toggle between an editState and an a saved state. */
+
+
+  toggleEditingAt = index =>
+    this.toggleMessagePropertyAt("isEditing", index);
+
+
+/* removes a particular message object from the array of messages */
+
+  removeMessageAt = index =>
     this.setState({
       messages: [
       ...this.state.messages.slice(0, index),
@@ -56,10 +61,9 @@ class App extends Component {
       ]
    })
 
-  toggleEditingAt = index => 
-    this.toggleMessagePropertyAt("isEditing", index);
+/* function that is called when one is editing the form. passed from App to Message to MessageList (callback function), down to EditContent */
 
-  setContentAt = (content, indexToChange) => 
+  setContentAt = (content, indexToChange) =>
      this.setState({
        messages: this.state.messages.map((message, index) => {
          if (index === indexToChange) {
@@ -72,20 +76,19 @@ class App extends Component {
        })
      });
 
-  handleMessageInput = e => 
-    this.setState({pendingMessage: e.target.value});
-  
-  setUser = (e, initials) => {
-    this.setState({ initials });
-  }
+/* handles change events on the form. handleMessageInput accepts an event object on change, and sets the pendingMessage property to the target's value. */
 
+  handleMessageInput = e =>
+    this.setState({pendingMessage: e.target.value});
+
+/* newMessageSubmitHandler sets the forms state on submit. e.preventDefault prevents the default behavior, then we setState, adding a new message with the pendingMessage property, the date, the initials. */
 
   newMessageSubmitHandler = e => {
     e.preventDefault();
     this.setState({
       messages: [
         ...this.state.messages,
-       { 
+       {
          content: this.state.pendingMessage,
          isEditing: false,
          timeSent: Date(),
@@ -96,6 +99,11 @@ class App extends Component {
     });
   }
 
+/* Sets the user for a card based on a particular buttons' onClick event */
+
+  setUser = (e, initials) => {
+    this.setState({ initials });
+  }
 
   render() {
     return (
@@ -103,7 +111,7 @@ class App extends Component {
         <header>
         </header>
         <div className="main">
-          <MessageList 
+          <MessageList
             messages={this.state.messages}
             toggleEditingAt={this.toggleEditingAt}
             setContentAt={this.setContentAt}
@@ -117,11 +125,11 @@ class App extends Component {
             <button className="participantButtons participantButtonThree" onClick={(e) => this.setUser(e, 'Narinder Singh') }>NS</button>
           </div>
             <form onSubmit={this.newMessageSubmitHandler}>
-              <input 
-                type="text" 
+              <input
+                type="text"
                 onChange={this.handleMessageInput}
                 value={this.state.pendingMessage}
-                placeholder="My Message" 
+                placeholder="My Message"
               />
               <div className="counter">
                 <Counter content={this.state.pendingMessage} />
